@@ -190,7 +190,7 @@ a { color: inherit; }
 .game-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow-y: auto; padding: .8rem; text-align: center; background: rgba(255,250,241,.94); backdrop-filter: blur(5px); }
 .game-overlay h2 { max-width: 700px; margin: .15rem 0 .45rem; color: var(--wine); font: 700 clamp(1.25rem, 4.5vw, 2.5rem)/1.05 Georgia, serif; }
 .game-overlay > p:not(.eyebrow):not(.save-state) { max-width: 600px; margin: .25rem 0; color: var(--muted); font-size: clamp(.68rem, 2vw, .95rem); line-height: 1.45; }
-.bike-badge { font-size: clamp(1.8rem, 6vw, 3.7rem); }
+.vehicle-badge { font-size: clamp(1.8rem, 6vw, 3.7rem); }
 .points-list { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; margin: .6rem 0; }
 .points-list span { padding: .28rem .45rem; border-radius: 8px; color: var(--ink); background: #f6e8dc; font-size: clamp(.58rem, 1.8vw, .77rem); }
 .points-list b { color: var(--wine); }

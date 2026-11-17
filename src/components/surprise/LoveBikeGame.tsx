@@ -231,52 +231,134 @@ export function LoveBikeGame({ token }: { token: string }) {
     };
 
     const drawPlayer = (game: Runtime) => {
-      const y = game.playerY;
+      const bodyBob = game.phase === "playing" ? Math.sin(game.background / 22) * 1.8 : 0;
+      const y = game.playerY + bodyBob;
       const blink = game.invincible > 0 && Math.floor(game.invincible * 12) % 2 === 0;
       if (blink) context.globalAlpha = 0.35;
+
+      if (game.phase === "playing") {
+        context.save();
+        context.strokeStyle = "rgba(112,31,56,.22)";
+        context.lineWidth = 4;
+        context.lineCap = "round";
+        for (let line = 0; line < 3; line += 1) {
+          const lineY = y - 88 + line * 25;
+          const pulse = (game.background / 4 + line * 27) % 42;
+          context.beginPath();
+          context.moveTo(36 - pulse, lineY);
+          context.lineTo(76 - pulse / 2, lineY);
+          context.stroke();
+        }
+        context.fillStyle = "rgba(255,255,255,.55)";
+        for (let puff = 0; puff < 3; puff += 1) {
+          context.beginPath();
+          context.arc(82 - puff * 13 - ((game.background / 8) % 10), y - 42 + puff * 3, 7 + puff * 2, 0, Math.PI * 2);
+          context.fill();
+        }
+        context.restore();
+      }
+
       const wheelSpin = game.background / 24;
-      context.strokeStyle = "#2a2626";
-      context.lineWidth = 7;
-      for (const wheelX of [142, 242]) {
-        context.beginPath(); context.arc(wheelX, y - 8, 35, 0, Math.PI * 2); context.stroke();
+      for (const wheelX of [135, 250]) {
+        context.fillStyle = "#241f20";
+        context.beginPath(); context.arc(wheelX, y - 14, 29, 0, Math.PI * 2); context.fill();
+        context.fillStyle = "#dad3c9";
+        context.beginPath(); context.arc(wheelX, y - 14, 17, 0, Math.PI * 2); context.fill();
+        context.strokeStyle = "#766d68";
         context.lineWidth = 2;
         for (let spoke = 0; spoke < 8; spoke += 1) {
           const angle = wheelSpin + spoke * Math.PI / 4;
-          context.beginPath(); context.moveTo(wheelX, y - 8); context.lineTo(wheelX + Math.cos(angle) * 32, y - 8 + Math.sin(angle) * 32); context.stroke();
+          context.beginPath();
+          context.moveTo(wheelX, y - 14);
+          context.lineTo(wheelX + Math.cos(angle) * 14, y - 14 + Math.sin(angle) * 14);
+          context.stroke();
         }
-        context.lineWidth = 7;
+        context.fillStyle = "#514943";
+        context.beginPath(); context.arc(wheelX, y - 14, 5, 0, Math.PI * 2); context.fill();
       }
-      context.strokeStyle = "#8f2648";
-      context.lineWidth = 8;
-      context.lineCap = "round";
-      context.beginPath();
-      context.moveTo(142, y - 8); context.lineTo(178, y - 53); context.lineTo(212, y - 8); context.lineTo(154, y - 8); context.lineTo(196, y - 57); context.lineTo(242, y - 8); context.stroke();
-      context.strokeStyle = "#cf9f45";
-      context.beginPath(); context.moveTo(196, y - 57); context.lineTo(220, y - 78); context.lineTo(238, y - 76); context.stroke();
 
-      const pedal = game.background / 18;
-      context.strokeStyle = "#453130";
-      context.lineWidth = 11;
-      context.beginPath(); context.moveTo(184, y - 75); context.lineTo(180 + Math.cos(pedal) * 26, y - 34 + Math.sin(pedal) * 14); context.stroke();
-      context.beginPath(); context.moveTo(206, y - 73); context.lineTo(206 - Math.cos(pedal) * 26, y - 34 - Math.sin(pedal) * 14); context.stroke();
-      context.fillStyle = "#f4e4c2";
-      context.beginPath(); context.roundRect(165, y - 139, 60, 73, 18); context.fill();
-      context.fillStyle = "#7a263f";
-      context.beginPath(); context.roundRect(160, y - 119, 70, 53, 15); context.fill();
-      context.strokeStyle = "#f4e4c2";
-      context.lineWidth = 12;
-      context.beginPath(); context.moveTo(215, y - 105); context.lineTo(226, y - 77); context.stroke();
+      const bodyGradient = context.createLinearGradient(85, y - 112, 290, y - 22);
+      bodyGradient.addColorStop(0, "#5a321f");
+      bodyGradient.addColorStop(0.48, "#a96f48");
+      bodyGradient.addColorStop(0.72, "#7a472e");
+      bodyGradient.addColorStop(1, "#4a291d");
+      context.fillStyle = bodyGradient;
+      context.beginPath();
+      context.moveTo(88, y - 79);
+      context.quadraticCurveTo(93, y - 105, 122, y - 109);
+      context.lineTo(145, y - 137);
+      context.quadraticCurveTo(153, y - 147, 171, y - 148);
+      context.lineTo(222, y - 148);
+      context.quadraticCurveTo(238, y - 146, 248, y - 132);
+      context.lineTo(270, y - 104);
+      context.quadraticCurveTo(294, y - 98, 302, y - 76);
+      context.lineTo(298, y - 43);
+      context.quadraticCurveTo(291, y - 29, 270, y - 28);
+      context.quadraticCurveTo(263, y - 64, 250, y - 64);
+      context.quadraticCurveTo(232, y - 64, 225, y - 28);
+      context.lineTo(162, y - 28);
+      context.quadraticCurveTo(155, y - 64, 135, y - 64);
+      context.quadraticCurveTo(117, y - 64, 109, y - 28);
+      context.lineTo(94, y - 30);
+      context.quadraticCurveTo(82, y - 39, 83, y - 56);
+      context.closePath();
+      context.fill();
+
+      context.fillStyle = "#20333a";
+      context.beginPath();
+      context.moveTo(148, y - 134);
+      context.lineTo(168, y - 141);
+      context.lineTo(187, y - 141);
+      context.lineTo(187, y - 93);
+      context.lineTo(130, y - 93);
+      context.closePath();
+      context.fill();
+      context.beginPath();
+      context.moveTo(193, y - 141);
+      context.lineTo(219, y - 141);
+      context.quadraticCurveTo(229, y - 139, 237, y - 128);
+      context.lineTo(262, y - 94);
+      context.lineTo(193, y - 94);
+      context.closePath();
+      context.fill();
+
+      context.strokeStyle = "#3c2419";
+      context.lineWidth = 4;
+      context.beginPath(); context.moveTo(190, y - 144); context.lineTo(190, y - 35); context.stroke();
+      context.strokeStyle = "rgba(255,255,255,.35)";
+      context.lineWidth = 3;
+      context.beginPath(); context.moveTo(106, y - 91); context.quadraticCurveTo(185, y - 115, 285, y - 88); context.stroke();
+
+      context.fillStyle = "#f5c45b";
+      context.beginPath(); context.roundRect(284, y - 82, 15, 18, 5); context.fill();
+      context.fillStyle = "#b43b43";
+      context.beginPath(); context.roundRect(85, y - 79, 11, 23, 4); context.fill();
+      context.fillStyle = "#d8c8ae";
+      context.beginPath(); context.roundRect(274, y - 43, 25, 7, 3); context.fill();
+
+      context.fillStyle = "rgba(255,255,255,.78)";
+      context.font = "700 12px system-ui";
+      context.textAlign = "center";
+      context.fillText("HB20", 259, y - 72);
+      context.textAlign = "left";
+
+      context.strokeStyle = "#d5bd8d";
+      context.lineWidth = 5;
+      context.beginPath(); context.arc(211, y - 97, 13, 0, Math.PI * 2); context.stroke();
+      context.strokeStyle = "#f1d5b0";
+      context.lineWidth = 7;
+      context.beginPath(); context.moveTo(185, y - 105); context.lineTo(207, y - 96); context.stroke();
 
       context.save();
       context.beginPath();
-      context.arc(188, y - 172, 58, 0, Math.PI * 2);
+      context.arc(176, y - 128, 47, 0, Math.PI * 2);
       context.clip();
-      if (faceRef.current?.complete) context.drawImage(faceRef.current, 128, y - 232, 120, 120);
-      else { context.fillStyle = "#e8b18d"; context.fillRect(128, y - 232, 120, 120); }
+      if (faceRef.current?.complete) context.drawImage(faceRef.current, 128, y - 176, 96, 96);
+      else { context.fillStyle = "#e8b18d"; context.fillRect(128, y - 176, 96, 96); }
       context.restore();
       context.strokeStyle = "#f7ead0";
-      context.lineWidth = 6;
-      context.beginPath(); context.arc(188, y - 172, 60, 0, Math.PI * 2); context.stroke();
+      context.lineWidth = 5;
+      context.beginPath(); context.arc(176, y - 128, 49, 0, Math.PI * 2); context.stroke();
       context.globalAlpha = 1;
     };
 
@@ -334,14 +416,16 @@ export function LoveBikeGame({ token }: { token: string }) {
         game.obstacleTimer = 3.7 + Math.random() * 1.9;
       }
 
-      const playerRect = { x: 126, y: game.playerY - 210, w: 118, h: 203 };
+      const collectionRect = { x: 88, y: game.playerY - 178, w: 214, h: 168 };
+      const obstacleRect = { x: 96, y: game.playerY - 105, w: 195, h: 98 };
       const remaining: Entity[] = [];
       for (const entity of game.entities) {
         entity.x -= 295 * delta;
         const hitBox = entity.type === "item"
           ? { x: entity.x, y: entity.y, w: entity.w, h: entity.h }
           : { x: entity.x, y: entity.y, w: entity.w, h: entity.h };
-        if (intersects(playerRect, hitBox)) {
+        const playerHitBox = entity.type === "item" ? collectionRect : obstacleRect;
+        if (intersects(playerHitBox, hitBox)) {
           if (entity.type === "item") {
             game.counts[entity.item] += 1;
             game.score = calculateScore(game.counts);
@@ -392,8 +476,8 @@ export function LoveBikeGame({ token }: { token: string }) {
     <section className="game-section" aria-labelledby="game-title">
       <header className="section-heading game-heading">
         <p className="eyebrow">Capítulo três</p>
-        <h1 id="game-title">Pedal do Médio <span aria-hidden="true">🚲</span></h1>
-        <p>Pedale automaticamente, pule os obstáculos e colete tudo que a Yasmin ama.</p>
+        <h1 id="game-title"><span aria-hidden="true">🚗</span> HB20 do Médio</h1>
+        <p>Acompanhe um CLT em busca da alegria da sua namorada.</p>
       </header>
 
       <div className="game-card">
@@ -404,19 +488,19 @@ export function LoveBikeGame({ token }: { token: string }) {
           <button type="button" onClick={togglePause} disabled={phase === "intro" || phase === "ended"}>{phase === "paused" ? "▶" : "Ⅱ"}</button>
         </div>
         <div className="canvas-wrap" onPointerDown={(event) => { if ((event.target as HTMLElement).tagName === "CANVAS") jump(); }}>
-          <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} aria-label="Jogo de bicicleta Pedal do Médio" />
+          <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} aria-label="Jogo de carro HB20 do Médio" />
 
           {phase === "intro" && (
             <div className="game-overlay intro-overlay">
-              <span className="bike-badge" aria-hidden="true">🚲</span>
+              <span className="vehicle-badge" aria-hidden="true">🚗</span>
               <p className="eyebrow">Missão do dia</p>
-              <h2>Encha a cestinha de coisas boas!</h2>
+              <h2>Abasteça o HB20 de coisas boas!</h2>
               <p>Você tem {siteConfig.game.durationSeconds} segundos e 3 vidas. Colete pelo menos um item de cada tipo para completar a meta especial.</p>
               <div className="points-list">
                 {itemOrder.map((key) => <span key={key}>{siteConfig.game.items[key].emoji} {siteConfig.game.items[key].label} <b>+{siteConfig.game.items[key].points}</b></span>)}
               </div>
               <p className="game-controls"><kbd>Espaço</kbd> ou <kbd>↑</kbd> no computador · toque ou botão no celular</p>
-              <button className="game-start" type="button" onClick={startGame}>Começar o pedal <span aria-hidden="true">→</span></button>
+              <button className="game-start" type="button" onClick={startGame}>Ligar o HB20 <span aria-hidden="true">→</span></button>
             </div>
           )}
 
@@ -431,7 +515,7 @@ export function LoveBikeGame({ token }: { token: string }) {
             <div className="game-overlay result-overlay">
               <span className="result-heart" aria-hidden="true">♥</span>
               <p className="eyebrow">Partida concluída</p>
-              <h2>Parabéns, Yasmin! Você conquistou meu coração de novo! ❤️</h2>
+              <h2>{allCollected ? "Missão cumprida! O CLT garantiu a felicidade da patroa! ❤️" : "O expediente continua: ainda faltam presentes para a patroa!"}</h2>
               <strong className="final-score">{hud.score} <small>pontos</small></strong>
               <p>{allCollected ? "Meta especial completa: um mimo de cada categoria! ✨" : "Quase lá! Jogue de novo para encontrar as quatro categorias."}</p>
               <div className="result-items">{itemOrder.map((key) => <span key={key}>{siteConfig.game.items[key].emoji} × {hud.counts[key]}</span>)}</div>

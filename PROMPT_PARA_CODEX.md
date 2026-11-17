@@ -8,7 +8,7 @@ Estou comemorando **6 meses de namoro com Yasmin**. Quero enviar a ela um link p
 
 1. **Nosso Álbum** — álbum interativo com as sete fotos reais do casal fornecidas.
 2. **Yasmin Ditador** — paródia carinhosa do meme 'Kylian Ditador', com a imagem enviada, música por embed oficial e formulário para Yasmin registrar o que quer fazer hoje; eu recebo e posso gerenciar os pedidos.
-3. **Pedal do Médio** — minigame com meu personagem de bicicleta, com cabeça exageradamente grande baseada em uma das minhas fotos, coletando bolo de chocolate, coleira para Macchi (o cachorro), bolsas e roupas da Zara.
+3. **🚗 HB20 do Médio** — minigame com meu personagem dirigindo um HB20 marrom, com cabeça exageradamente grande baseada em uma das minhas fotos, coletando bolo de chocolate, coleira para Macchi (o cachorro), bolsas e roupas da Zara.
 
 **Duas experiências distintas de acesso:**
 - `https://DOMINIO/s/CONVITE_ALEATORIO` (link individual e difícil de adivinhar para Yasmin, sem exigir cadastro).
@@ -20,7 +20,7 @@ Não usar dados fictícios para simular persistência: **tudo o que for enviado 
 
 - `assets/album/01.webp` até `07.webp`: são **7 fotos reais** do casal, já preparadas para web (sem metadados EXIF). Use todas, na ordem numérica como ordem inicial. `assets/album/manifest.json` tem a lista.
 - `assets/yasmin-ditador.webp`: imagem do meme enviada. **Preservar integralmente as frases/textos nela já existentes**, não sobrescrever com outros elementos.
-- `assets/avatar-rosto.webp`: recorte de meu rosto a partir de uma das fotos do álbum. Usar no personagem cabeçudo da bicicleta; recorte circular/cartoon em CSS/canvas, com corpo e bicicleta ilustrados em 2D. Não substituir por rosto genérico.
+- `assets/avatar-rosto.webp`: recorte de meu rosto a partir de uma das fotos do álbum. Usar no motorista cabeçudo aparecendo pela janela do HB20 marrom ilustrado em Canvas 2D. Não substituir por rosto genérico.
 
 Copie esses assets para `public/assets/` ou caminho equivalente, sem alterar a relação entre os arquivos.
 
@@ -33,7 +33,7 @@ Quero algo de presente, não aparência de painel corporativo. Visual sofisticad
 A página inicial deverá ter:
 - destaque animado `Feliz 6 meses de namoro, Yasmin! ❤️`;
 - subtítulo com mensagem curta e delicada, sem inventar datas ou memórias específicas;
-- 3 cards grandes com ícones/ilustrações e CTAs claros: `Nosso Álbum 📸`, `Yasmin Ditador 👑`, `Pedal do Médio 🚲`;
+- 3 cards grandes com ícones/ilustrações e CTAs claros: `Nosso Álbum 📸`, `Yasmin Ditador 👑`, `🚗 HB20 do Médio`;
 - detalhe de surpresa/revelação ao abrir, opcional, com animação discreta;
 - botão para voltar ao menu em todas as seções.
 
@@ -70,9 +70,9 @@ Tom de brincadeira amorosa, divertido, sem conotação política real. Título `
 - No painel admin, permitir ver novos decretos em tempo quase real (Realtime ou polling), alterar status e escrever resposta curta carinhosa. Atualizações devem refletir na tela dela.
 - Se houver integração Resend configurada, opcionalmente mandar e-mail ao admin a cada novo decreto; **o banco/painel deve funcionar sem Resend**.
 
-## 6. Tela 3 — Pedal do Médio 🚲
+## 6. Tela 3 — 🚗 HB20 do Médio
 
-Criar **um minigame 2D jogável de verdade**, side-scroller leve e cômico, com personagem pedindo passagem de bicicleta, rosto extremamente cabeçudo usando `assets/avatar-rosto.webp`, corpo pequeno desenhado, rodas girando, movimento de pedalar e cenário divertido. O objetivo é coletar o máximo possível de coisas de que Yasmin gosta.
+Criar **um minigame 2D jogável de verdade**, side-scroller leve e cômico, com um CLT dirigindo um HB20 hatch marrom metálico, rosto extremamente cabeçudo usando `assets/avatar-rosto.webp`, rodas girando e cenário divertido. O objetivo é coletar o máximo possível de coisas de que Yasmin gosta.
 
 ### Itens coletáveis obrigatórios
 1. **Bolo de chocolate 🍫🎂** — ícone/sprite visual reconhecível;
@@ -84,9 +84,9 @@ Criar **um minigame 2D jogável de verdade**, side-scroller leve e cômico, com 
 - Escolher Phaser 3 ou Canvas 2D bem organizado (preferência Phaser 3 se integra facilmente a Next.js), com renderização responsiva.
 - Cenário com parallax suave, coleta por colisão, animações de partículas, sons próprios/royalty-free opcionais, HUD com pontos, corações/vidas, tempo e quantidade de cada tipo de item.
 - PC: `Espaço`/`↑` para pular e evitar obstáculos. Celular: toque em qualquer área apropriada do jogo ou botão `Pular`. O jogo deve ser realmente utilizável no celular, sem exigir teclado.
-- Bicicleta pedala automaticamente; jogador controla pulos. Obstáculos simples e engraçados (poças, cones, etc.), sem dificuldade excessiva.
+- O HB20 acelera automaticamente; jogador controla pulos. Obstáculos simples e engraçados (poças, cones, etc.), sem dificuldade excessiva.
 - Partida com duração-alvo ~60–90 segundos, 3 vidas, contagem de pontos clara. Definir pontuações equilibradas e informar no início.
-- Meta especial: coletar ao menos um item de cada categoria. Mostrar conquistas e final romântico com `Parabéns, Yasmin! Você conquistou meu coração de novo! ❤️` e botão `Jogar novamente`.
+- Meta especial: coletar ao menos um item de cada categoria. Mostrar conquistas e final romântico com `Missão cumprida! O CLT garantiu a felicidade da patroa! ❤️` e botão `Jogar novamente`.
 - Incluir tela de início com instruções e estado pausado/reiniciar; pausar quando aba perde foco para evitar penalidade injusta.
 - Evitar coletáveis gerados impossíveis de alcançar, e testar colisões, ritmo e scaling.
 - Salvar **somente resultados significativos** por partida: data/hora, score, tempo, itens por categoria, venceu/perdeu e quantidade de tentativas. O painel do namorado deve ver ranking das melhores partidas e histórico.
@@ -141,7 +141,7 @@ Sem dados fictícios em produção. Caso inicialmente não haja eventos, exibir 
 4. A tela Yasmin Ditador mostra a **imagem fornecida** e permite tocar/abrir a música por um clique.
 5. Yasmin escreve `Quero bolo de chocolate hoje` e clica em publicar: a mensagem aparece no banco e no meu `/admin` **em outro dispositivo**.
 6. No `/admin`, eu altero o status do decreto; Yasmin vê a atualização na área dela.
-7. O minigame de bicicleta funciona no celular, usa meu rosto grande e tem os 4 tipos de itens mencionados.
+7. O minigame do HB20 funciona no celular, usa meu rosto grande como motorista e tem os 4 tipos de itens mencionados.
 8. Ao terminar uma partida, pontuação/itens ficam persistidos e visíveis na dashboard.
 9. Convidada não consegue acessar `/admin`; usuário não autenticado não consegue ler dados privados via API.
 10. O projeto tem README, migrações e instruções de deploy. Sem mock usado como backend final.

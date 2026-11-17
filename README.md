@@ -1,6 +1,6 @@
 # 6 meses com Yasmin ❤️
 
-Aplicação real, mobile-first, criada para a surpresa de seis meses de namoro. O link de Yasmin reúne um álbum interativo, o Palácio dos Decretos e o minigame **Pedal do Médio**. A área `/admin` usa Supabase Auth e mostra os dados persistidos em outros aparelhos.
+Aplicação real, mobile-first, criada para a surpresa de seis meses de namoro. O link de Yasmin reúne um álbum interativo, o Palácio dos Decretos e o minigame **🚗 HB20 do Médio**. A área `/admin` usa Supabase Auth e mostra os dados persistidos em outros aparelhos.
 
 ## O que está pronto
 
@@ -8,7 +8,7 @@ Aplicação real, mobile-first, criada para a surpresa de seis meses de namoro. 
 - álbum com as sete fotos reais, swipe, teclado, miniaturas, lightbox e corações persistidos;
 - imagem Yasmin Ditador preservada inteira, reprodução do vídeo oficial por ação da usuária e fallback para YouTube;
 - decretos persistidos, idempotentes, com status e resposta do namorado;
-- jogo Canvas 2D responsivo com o rosto real, bicicleta desenhada, controles touch/teclado, 3 vidas, pausa, quatro coletáveis e resultados persistidos;
+- jogo Canvas 2D responsivo com o rosto real dirigindo um HB20 marrom cartoon, controles touch/teclado, 3 vidas, pausa, quatro coletáveis e resultados persistidos;
 - painel protegido por Supabase Auth, atualização automática, convite copiável, decretos, ranking, álbum e atividades essenciais;
 - RLS fechada para clientes, service role apenas no servidor, validação Zod, checagem de origem e rate limit no banco;
 - testes unitários, lint, TypeScript estrito e build Vercel.
@@ -151,7 +151,7 @@ Falhas no e-mail não desfazem nem ocultam um decreto salvo.
 - textos, legendas, sugestões e valores do jogo: [`src/config/site.ts`](src/config/site.ts);
 - fotos: `public/assets/album/01.webp` a `07.webp` (a ordem está no mesmo arquivo de configuração);
 - montagem: `public/assets/yasmin-ditador.webp`;
-- rosto do ciclista: `public/assets/avatar-rosto.webp`;
+- rosto do motorista: `public/assets/avatar-rosto.webp`;
 - hino: `YOUTUBE_ANTHEM_URL`.
 
 Os assets originais continuam em `assets/` e foram copiados sem alterar a relação de nomes. A montagem usa `object-fit: contain` e nenhum texto é sobreposto nela.

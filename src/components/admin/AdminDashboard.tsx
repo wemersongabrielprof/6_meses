@@ -100,7 +100,7 @@ export function AdminDashboard({ email }: { email: string }) {
       <aside className="admin-sidebar">
         <div className="admin-brand"><span>Y</span><div><b>Nosso cantinho</b><small>painel do namorado</small></div></div>
         <nav aria-label="Seções do painel">
-          <a href="#resumo">Resumo</a><a href="#decretos">Decretos</a><a href="#partidas">Pedal do Médio</a><a href="#album">Álbum</a>
+          <a href="#resumo">Resumo</a><a href="#decretos">Decretos</a><a href="#partidas">🚗 HB20 do Médio</a><a href="#album">Álbum</a>
         </nav>
         <div className="admin-user"><small>Conectado como</small><span>{email}</span><button type="button" onClick={logout}>Sair</button></div>
       </aside>
@@ -118,7 +118,7 @@ export function AdminDashboard({ email }: { email: string }) {
 
         <section id="resumo" className="stats-grid" aria-label="Resumo">
           <article><span>👑</span><small>Novos decretos</small><b>{data?.stats.newDecrees ?? 0}</b></article>
-          <article><span>🚲</span><small>Melhor pontuação</small><b>{data?.stats.bestScore ?? 0}</b></article>
+          <article><span>🚗</span><small>Melhor pontuação</small><b>{data?.stats.bestScore ?? 0}</b></article>
           <article><span>♥</span><small>Corações no álbum</small><b>{data?.stats.hearts ?? 0}</b></article>
           <article><span>✦</span><small>Visitas importantes</small><b>{data?.stats.visits ?? 0}</b></article>
         </section>
@@ -145,8 +145,8 @@ export function AdminDashboard({ email }: { email: string }) {
         </section>
 
         <section id="partidas" className="admin-panel">
-          <div className="panel-title"><div><p className="eyebrow">Ranking real</p><h2>Pedal do Médio</h2></div><span>{data?.stats.gameRuns ?? 0} partidas</span></div>
-          {!data?.gameRuns.length ? <p className="empty-state">Nenhuma volta de bicicleta foi concluída ainda.</p> : (
+          <div className="panel-title"><div><p className="eyebrow">Ranking real</p><h2>🚗 HB20 do Médio</h2></div><span>{data?.stats.gameRuns ?? 0} partidas</span></div>
+          {!data?.gameRuns.length ? <p className="empty-state">Nenhuma missão do HB20 foi concluída ainda.</p> : (
             <div className="table-wrap"><table><thead><tr><th>Quando</th><th>Pontos</th><th>Meta</th><th>🎂</th><th>🐶</th><th>👜</th><th>👗 Zara</th><th>Tentativa</th></tr></thead><tbody>
               {data.gameRuns.map((run) => <tr key={run.id}><td>{formatDate(run.created_at)}</td><td><strong>{run.score}</strong></td><td>{run.won ? "Completa ✨" : "Incompleta"}</td><td>{run.chocolate_cakes}</td><td>{run.macchi_collars}</td><td>{run.bags}</td><td>{run.zara_clothes}</td><td>#{run.attempts}</td></tr>)}
             </tbody></table></div>
