@@ -100,7 +100,7 @@ export function AdminDashboard({ email }: { email: string }) {
       <aside className="admin-sidebar">
         <div className="admin-brand"><span>Y</span><div><b>Nosso cantinho</b><small>painel do namorado</small></div></div>
         <nav aria-label="Seções do painel">
-          <a href="#resumo">Resumo</a><a href="#decretos">Decretos</a><a href="#partidas">Pedal do amor</a><a href="#album">Álbum</a>
+          <a href="#resumo">Resumo</a><a href="#decretos">Decretos</a><a href="#partidas">Pedal do Médio</a><a href="#album">Álbum</a>
         </nav>
         <div className="admin-user"><small>Conectado como</small><span>{email}</span><button type="button" onClick={logout}>Sair</button></div>
       </aside>
@@ -145,7 +145,7 @@ export function AdminDashboard({ email }: { email: string }) {
         </section>
 
         <section id="partidas" className="admin-panel">
-          <div className="panel-title"><div><p className="eyebrow">Ranking real</p><h2>Pedal do Amor</h2></div><span>{data?.stats.gameRuns ?? 0} partidas</span></div>
+          <div className="panel-title"><div><p className="eyebrow">Ranking real</p><h2>Pedal do Médio</h2></div><span>{data?.stats.gameRuns ?? 0} partidas</span></div>
           {!data?.gameRuns.length ? <p className="empty-state">Nenhuma volta de bicicleta foi concluída ainda.</p> : (
             <div className="table-wrap"><table><thead><tr><th>Quando</th><th>Pontos</th><th>Meta</th><th>🎂</th><th>🐶</th><th>👜</th><th>👗 Zara</th><th>Tentativa</th></tr></thead><tbody>
               {data.gameRuns.map((run) => <tr key={run.id}><td>{formatDate(run.created_at)}</td><td><strong>{run.score}</strong></td><td>{run.won ? "Completa ✨" : "Incompleta"}</td><td>{run.chocolate_cakes}</td><td>{run.macchi_collars}</td><td>{run.bags}</td><td>{run.zara_clothes}</td><td>#{run.attempts}</td></tr>)}

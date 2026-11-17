@@ -1,6 +1,6 @@
 # 6 meses com Yasmin ❤️
 
-Aplicação real, mobile-first, criada para a surpresa de seis meses de namoro. O link de Yasmin reúne um álbum interativo, o Palácio dos Decretos e o minigame **Pedal do Amor**. A área `/admin` usa Supabase Auth e mostra os dados persistidos em outros aparelhos.
+Aplicação real, mobile-first, criada para a surpresa de seis meses de namoro. O link de Yasmin reúne um álbum interativo, o Palácio dos Decretos e o minigame **Pedal do Médio**. A área `/admin` usa Supabase Auth e mostra os dados persistidos em outros aparelhos.
 
 ## O que está pronto
 

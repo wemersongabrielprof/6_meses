@@ -33,7 +33,7 @@ Quero algo de presente, não aparência de painel corporativo. Visual sofisticad
 A página inicial deverá ter:
 - destaque animado `Feliz 6 meses de namoro, Yasmin! ❤️`;
 - subtítulo com mensagem curta e delicada, sem inventar datas ou memórias específicas;
-- 3 cards grandes com ícones/ilustrações e CTAs claros: `Nosso Álbum 📸`, `Yasmin Ditador 👑`, `Pedal do Amor 🚲`;
+- 3 cards grandes com ícones/ilustrações e CTAs claros: `Nosso Álbum 📸`, `Yasmin Ditador 👑`, `Pedal do Médio 🚲`;
 - detalhe de surpresa/revelação ao abrir, opcional, com animação discreta;
 - botão para voltar ao menu em todas as seções.
 
@@ -70,7 +70,7 @@ Tom de brincadeira amorosa, divertido, sem conotação política real. Título `
 - No painel admin, permitir ver novos decretos em tempo quase real (Realtime ou polling), alterar status e escrever resposta curta carinhosa. Atualizações devem refletir na tela dela.
 - Se houver integração Resend configurada, opcionalmente mandar e-mail ao admin a cada novo decreto; **o banco/painel deve funcionar sem Resend**.
 
-## 6. Tela 3 — Pedal do Amor 🚲
+## 6. Tela 3 — Pedal do Médio 🚲
 
 Criar **um minigame 2D jogável de verdade**, side-scroller leve e cômico, com personagem pedindo passagem de bicicleta, rosto extremamente cabeçudo usando `assets/avatar-rosto.webp`, corpo pequeno desenhado, rodas girando, movimento de pedalar e cenário divertido. O objetivo é coletar o máximo possível de coisas de que Yasmin gosta.
 

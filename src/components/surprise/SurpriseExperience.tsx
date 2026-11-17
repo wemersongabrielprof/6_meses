@@ -13,7 +13,7 @@ type Section = "home" | "album" | "dictator" | "game";
 const cards = [
   { id: "album", icon: "📸", title: "Nosso Álbum", copy: "Sete lembranças, muitos sorrisos e um montão de carinho.", cta: "Abrir o álbum" },
   { id: "dictator", icon: "👑", title: "Yasmin Ditador", copy: "O palácio está aberto. Hoje, suas ordens viram decretos reais.", cta: "Assumir o palácio" },
-  { id: "game", icon: "🚲", title: "Pedal do Amor", copy: "Um ciclista cabeçudo, presentes pelo caminho e uma missão especial.", cta: "Começar a pedalar" },
+  { id: "game", icon: "🚲", title: "Pedal do Médio", copy: "Um ciclista cabeçudo, presentes pelo caminho e uma missão especial.", cta: "Começar a pedalar" },
 ] as const;
 
 export function SurpriseExperience({ token, anthemUrl }: { token: string; anthemUrl: string }) {

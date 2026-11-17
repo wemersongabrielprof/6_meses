@@ -392,7 +392,7 @@ export function LoveBikeGame({ token }: { token: string }) {
     <section className="game-section" aria-labelledby="game-title">
       <header className="section-heading game-heading">
         <p className="eyebrow">Capítulo três</p>
-        <h1 id="game-title">Pedal do Amor <span aria-hidden="true">🚲</span></h1>
+        <h1 id="game-title">Pedal do Médio <span aria-hidden="true">🚲</span></h1>
         <p>Pedale automaticamente, pule os obstáculos e colete tudo que a Yasmin ama.</p>
       </header>
 
@@ -404,7 +404,7 @@ export function LoveBikeGame({ token }: { token: string }) {
           <button type="button" onClick={togglePause} disabled={phase === "intro" || phase === "ended"}>{phase === "paused" ? "▶" : "Ⅱ"}</button>
         </div>
         <div className="canvas-wrap" onPointerDown={(event) => { if ((event.target as HTMLElement).tagName === "CANVAS") jump(); }}>
-          <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} aria-label="Jogo de bicicleta Pedal do Amor" />
+          <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} aria-label="Jogo de bicicleta Pedal do Médio" />
 
           {phase === "intro" && (
             <div className="game-overlay intro-overlay">
