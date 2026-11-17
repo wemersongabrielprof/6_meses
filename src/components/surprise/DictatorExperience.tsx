@@ -4,22 +4,13 @@ import Image from "next/image";
 import { FormEvent, useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 import type { Decree, DecreeStatus } from "@/lib/types";
+import { YouTubeAnthemPlayer } from "./YouTubeAnthemPlayer";
 
 const statusLabels: Record<DecreeStatus, string> = {
   recebido: "Recebido no palácio",
   em_andamento: "Em andamento",
   cumprido: "Cumprido com honra",
 };
-
-function youtubeId(url: string) {
-  try {
-    const parsed = new URL(url);
-    if (parsed.hostname === "youtu.be") return parsed.pathname.slice(1);
-    return parsed.searchParams.get("v") || parsed.pathname.split("/").filter(Boolean).pop() || "Gt2gf6NCr3Q";
-  } catch {
-    return "Gt2gf6NCr3Q";
-  }
-}
 
 function localDate(value: string) {
   return new Intl.DateTimeFormat("pt-BR", {
@@ -41,6 +32,7 @@ export function DictatorExperience({
   onCreated: (decree: Decree) => void;
 }) {
   const [musicOpen, setMusicOpen] = useState(false);
+  const [musicOrigin, setMusicOrigin] = useState("");
   const [text, setText] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [feedback, setFeedback] = useState("");
@@ -90,19 +82,18 @@ export function DictatorExperience({
             <Image src="/assets/yasmin-ditador.webp" alt="Montagem Yasmin Ditador com suas frases originais" width={1080} height={1440} priority />
           </div>
           {!musicOpen ? (
-            <button className="anthem-button" type="button" onClick={() => setMusicOpen(true)}>
-              <span aria-hidden="true">▶</span> Tocar hino da ditadora
+            <button
+              className="anthem-button"
+              type="button"
+              onClick={() => {
+                setMusicOrigin(window.location.origin);
+                setMusicOpen(true);
+              }}
+            >
+              <span aria-hidden="true">▶</span> Tocar hino da ditadora 👑
             </button>
           ) : (
-            <div className="anthem-player page-enter">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${youtubeId(anthemUrl)}?autoplay=1&rel=0`}
-                title="Kylian Mbappe Dictador Anthem, de SurNervis"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowFullScreen
-              />
-              <a href={anthemUrl} target="_blank" rel="noreferrer">Abrir música no YouTube ↗</a>
-            </div>
+            <YouTubeAnthemPlayer anthemUrl={anthemUrl} origin={musicOrigin} />
           )}
         </div>
 

@@ -158,7 +158,8 @@ Os assets originais continuam em `assets/` e foram copiados sem alterar a relaç
 
 ## Privacidade e segurança
 
-- o site inteiro envia `noindex`, `noarchive` e `Referrer-Policy: no-referrer`;
+- o site inteiro envia `noindex`, `noarchive` e `Referrer-Policy: strict-origin-when-cross-origin`; assim o YouTube recebe apenas a origem necessária, sem receber o token presente no caminho do convite;
+- a CSP permite frames somente do próprio site e dos domínios oficiais `youtube.com`/`youtube-nocookie.com`;
 - não há analytics de terceiros, localização, microfone, rascunhos ou rastreamento de mouse;
 - só são registrados: visita da surpresa, foto aberta, coração explícito, decreto confirmado e resultado final de partida;
 - `localStorage` guarda apenas uma partida final que falhou ao sincronizar, para permitir reenvio; nunca é o banco principal;
