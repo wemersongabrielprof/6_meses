@@ -1,0 +1,19 @@
+# Kit de arquivos — 6 meses com Yasmin ❤️
+
+Conteúdo para entregar ao **Codex** em um workspace de desenvolvimento:
+
+- `PROMPT_PARA_CODEX.md` — instruções completas de implementação. Cole integralmente no Codex, ou peça: “Leia PROMPT_PARA_CODEX.md e implemente o projeto seguindo todas as etapas”.
+- `assets/album/01.webp` ... `07.webp` — todas as 7 fotos de casal fornecidas, otimizadas para web e sem metadados EXIF.
+- `assets/album/manifest.json` — inventário das 7 fotos.
+- `assets/yasmin-ditador.webp` — montagem com as frases do meme, pronta para a página Yasmin Ditador.
+- `assets/avatar-rosto.webp` — rosto derivado de uma foto do casal para uso circular no personagem cabeçudo do jogo.
+
+## Como usar
+
+1. Crie uma pasta vazia no computador para o projeto e extraia **todo este ZIP** dentro dela.
+2. Abra essa pasta no Codex ou no editor com Codex.
+3. Peça: **“Leia o arquivo `PROMPT_PARA_CODEX.md` e implemente integralmente a aplicação, utilizando os assets reais desta pasta. Não faça apenas uma maquete.”**
+4. Configure um projeto Supabase e as variáveis de ambiente conforme o README que o Codex gerará.
+5. Publique na Vercel e teste o link de convite e o link `/admin`.
+
+**Importante**: o arquivo ZIP é um kit de instruções + imagens, não o site já programado ou hospedado. A música não está embutida; o prompt configura a reprodução pelo vídeo do artista no YouTube.

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "src": "/assets/album/01.webp",
+    "alt": "Fotografia 1 do casal",
+    "caption": null
+  },
+  {
+    "id": 2,
+    "src": "/assets/album/02.webp",
+    "alt": "Fotografia 2 do casal",
+    "caption": null
+  },
+  {
+    "id": 3,
+    "src": "/assets/album/03.webp",
+    "alt": "Fotografia 3 do casal",
+    "caption": null
+  },
+  {
+    "id": 4,
+    "src": "/assets/album/04.webp",
+    "alt": "Fotografia 4 do casal",
+    "caption": null
+  },
+  {
+    "id": 5,
+    "src": "/assets/album/05.webp",
+    "alt": "Fotografia 5 do casal",
+    "caption": null
+  },
+  {
+    "id": 6,
+    "src": "/assets/album/06.webp",
+    "alt": "Fotografia 6 do casal",
+    "caption": null
+  },
+  {
+    "id": 7,
+    "src": "/assets/album/07.webp",
+    "alt": "Fotografia 7 do casal",
+    "caption": null
+  }
+]
