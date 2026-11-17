@@ -156,7 +156,7 @@ export function YouTubeAnthemPlayer({ anthemUrl, origin }: { anthemUrl: string; 
           key={attempt}
           ref={iframeRef}
           src={buildYouTubeEmbedUrl(videoId, origin)}
-          title="Kylian Mbappe Dictador Anthem, de SurNervis"
+          title="Hino da Yasmin Ditador no YouTube"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen

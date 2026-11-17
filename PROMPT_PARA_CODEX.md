@@ -56,7 +56,7 @@ Tom de brincadeira amorosa, divertido, sem conotação política real. Título `
 ### Layout
 - Exibir a imagem `assets/yasmin-ditador.webp` em destaque, sem cortar as frases já existentes nela. Usar `object-fit: contain` ou adaptação responsável em celulares.
 - Criar selo `Palácio dos Decretos da Yasmin` e animação leve de coroa/corações.
-- Incluir botão **`▶ Tocar hino da ditadora`** que abre/reproduz a música do meme. A referência pretendida é **`Kylian Mbappe Dictador Anthem` de SurNervis**: `https://www.youtube.com/watch?v=Gt2gf6NCr3Q` (vídeo publicado pelo canal do artista). Se o embed estiver indisponível, apresentar botão `Abrir música no YouTube`; permitir trocar a URL por configuração. **Não baixar nem incluir arquivo da música sem permissão/licença e não tentar burlar autoplay**: a reprodução deve começar por ação da usuária.
+- Incluir botão **`▶ Tocar hino da ditadora`** que abre/reproduz a música do meme. A referência atual é `https://www.youtube.com/watch?v=wwHneL4DrCg&list=RDwwHneL4DrCg&start_radio=1`. Se o embed estiver indisponível, apresentar botão `Abrir música no YouTube`; permitir trocar a URL por configuração. **Não baixar nem incluir arquivo da música sem permissão/licença e não tentar burlar autoplay**: a reprodução deve começar por ação da usuária.
 
 ### Formulário de decretos
 - Pergunta principal: `Minha rainha, o que vamos fazer hoje? 👑`.

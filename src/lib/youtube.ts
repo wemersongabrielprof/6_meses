@@ -1,4 +1,5 @@
 const youtubeIdPattern = /^[A-Za-z0-9_-]{11}$/;
+const unavailableVideoIds = new Set(["Gt2gf6NCr3Q"]);
 const youtubeHosts = new Set([
   "youtube.com",
   "www.youtube.com",
@@ -47,4 +48,11 @@ export function buildYouTubeEmbedUrl(videoId: string, origin: string) {
 export function buildYouTubeWatchUrl(videoId: string) {
   if (!youtubeIdPattern.test(videoId)) return "https://www.youtube.com/";
   return `https://www.youtube.com/watch?v=${videoId}`;
+}
+
+export function resolveYouTubeAnthemUrl(configuredUrl: string | undefined, fallbackUrl: string) {
+  if (!configuredUrl) return fallbackUrl;
+  const videoId = parseYouTubeVideoId(configuredUrl);
+  if (!videoId || unavailableVideoIds.has(videoId)) return fallbackUrl;
+  return configuredUrl;
 }

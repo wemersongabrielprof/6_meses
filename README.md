@@ -33,7 +33,7 @@ NEXT_PUBLIC_SUPABASE_URL=https://SEU-PROJETO.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 SUPABASE_SERVICE_ROLE_KEY=...
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-YOUTUBE_ANTHEM_URL=https://www.youtube.com/watch?v=Gt2gf6NCr3Q
+YOUTUBE_ANTHEM_URL=https://www.youtube.com/watch?v=wwHneL4DrCg&list=RDwwHneL4DrCg&start_radio=1
 ```
 
 `SUPABASE_SERVICE_ROLE_KEY` é um segredo: nunca prefixe com `NEXT_PUBLIC_`, nunca cole no navegador e nunca faça commit de `.env.local`.

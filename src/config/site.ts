@@ -5,7 +5,7 @@ export const siteConfig = {
     subtitle: "Preparei este cantinho para celebrar nós dois — com carinho, risadas e algumas surpresas.",
     closing: "Seis meses e eu ainda escolheria você de novo. ❤️",
   },
-  anthemUrl: "https://www.youtube.com/watch?v=Gt2gf6NCr3Q",
+  anthemUrl: "https://www.youtube.com/watch?v=wwHneL4DrCg&list=RDwwHneL4DrCg&start_radio=1",
   album: [
     { id: 1, src: "/assets/album/01.webp", alt: "Fotografia 1 do casal", caption: "Cada foto guarda um pedacinho do nosso amor." },
     { id: 2, src: "/assets/album/02.webp", alt: "Fotografia 2 do casal", caption: "Meu lugar favorito sempre tem um pouco de você." },
